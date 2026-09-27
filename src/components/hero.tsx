@@ -48,8 +48,8 @@ export function Hero() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-midnight/70" />
-        <div className="absolute inset-0 bg-gradient-to-r from-midnight via-midnight/75 to-midnight/35" />
+        <div className="absolute inset-0 bg-midnight/75" />
+        <div className="absolute inset-0 bg-gradient-to-r from-midnight via-midnight/80 to-midnight/40" />
       </motion.div>
 
       <motion.div

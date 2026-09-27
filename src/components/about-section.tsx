@@ -19,14 +19,14 @@ const points = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="bg-midnight px-5 py-20 text-white md:px-8 md:py-28">
-      <div className="mx-auto max-w-7xl">
+    <section id="about" className="overflow-visible bg-midnight px-5 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl overflow-visible">
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
           <Reveal>
             <p className="text-sm font-semibold tracking-[0.18em] text-lime uppercase">
               About Lunox
             </p>
-            <h2 className="mt-3 font-display text-3xl font-semibold md:text-5xl">
+            <h2 className="mt-3 font-display text-3xl font-semibold leading-tight text-white md:text-5xl">
               Lunox Services is Scottish through and through.
             </h2>
             <p className="mt-5 max-w-2xl text-white/75 md:text-lg">

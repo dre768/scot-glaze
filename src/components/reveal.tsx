@@ -8,19 +8,19 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 const variants = {
   up: {
-    hidden: { opacity: 0, y: 56 },
+    hidden: { opacity: 0, y: 36 },
     visible: { opacity: 1, y: 0 },
   },
   left: {
-    hidden: { opacity: 0, x: -48 },
+    hidden: { opacity: 0, x: -32 },
     visible: { opacity: 1, x: 0 },
   },
   right: {
-    hidden: { opacity: 0, x: 48 },
+    hidden: { opacity: 0, x: 32 },
     visible: { opacity: 1, x: 0 },
   },
   scale: {
-    hidden: { opacity: 0, y: 32, scale: 0.94 },
+    hidden: { opacity: 0, y: 24, scale: 0.96 },
     visible: { opacity: 1, y: 0, scale: 1 },
   },
   fade: {
@@ -48,11 +48,11 @@ export function Reveal({
 }) {
   return (
     <motion.div
-      className={cn(className)}
+      className={cn("overflow-visible", className)}
       variants={variants[direction]}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once, amount, margin: "0px 0px -10% 0px" }}
+      viewport={{ once, amount, margin: "0px 0px -6% 0px" }}
       transition={{ duration: 0.85, ease, delay }}
     >
       {children}

@@ -2,7 +2,6 @@
 
 import { useState, type FormEvent } from "react";
 import { Reveal } from "@/components/reveal";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -13,6 +12,11 @@ export function QuoteForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
   const [mockNote, setMockNote] = useState(false);
+  const [invalid, setInvalid] = useState({
+    name: false,
+    phone: false,
+    postcode: false,
+  });
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -31,7 +35,14 @@ export function QuoteForm() {
       details: String(data.get("details") ?? "").trim(),
     };
 
-    if (!payload.name || !payload.phone || !payload.postcode) {
+    const nextInvalid = {
+      name: !payload.name,
+      phone: !payload.phone,
+      postcode: !payload.postcode,
+    };
+    setInvalid(nextInvalid);
+
+    if (nextInvalid.name || nextInvalid.phone || nextInvalid.postcode) {
       setStatus("error");
       setError("Please add your name, phone, and postcode.");
       return;
@@ -56,6 +67,7 @@ export function QuoteForm() {
 
       setMockNote(Boolean(json.mock));
       setStatus("success");
+      setInvalid({ name: false, phone: false, postcode: false });
       form.reset();
     } catch {
       setStatus("error");
@@ -100,6 +112,7 @@ export function QuoteForm() {
                   autoComplete="name"
                   placeholder="Jordan MacLeod"
                   required
+                  aria-invalid={invalid.name || undefined}
                   className="h-11 bg-smoke"
                 />
               </Field>
@@ -111,6 +124,7 @@ export function QuoteForm() {
                   autoComplete="tel"
                   placeholder="07xxx xxx xxx"
                   required
+                  aria-invalid={invalid.phone || undefined}
                   className="h-11 bg-smoke"
                 />
               </Field>
@@ -134,6 +148,7 @@ export function QuoteForm() {
                   autoComplete="postal-code"
                   placeholder="G1 1AA"
                   required
+                  aria-invalid={invalid.postcode || undefined}
                   className="h-11 bg-smoke"
                 />
               </Field>
@@ -163,27 +178,33 @@ export function QuoteForm() {
               />
             </Field>
 
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button
-                type="submit"
-                disabled={status === "loading"}
-                className="pill h-12 bg-lime px-6 text-base font-semibold text-midnight hover:bg-sky hover:text-white"
+            {status === "error" ? (
+              <p
+                className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700"
+                role="alert"
               >
-                {status === "loading" ? "Sending…" : "Send my free quote"}
-              </Button>
-              {status === "success" && (
-                <p className="text-sm text-sky" role="status">
-                  {mockNote
-                    ? "Received locally — add Telegram credentials to deliver to your bot."
-                    : "Sent to Telegram. We’ll be in touch shortly."}
-                </p>
-              )}
-              {status === "error" && (
-                <p className="text-sm text-destructive" role="alert">
-                  {error}
-                </p>
-              )}
-            </div>
+                {error}
+              </p>
+            ) : null}
+
+            {status === "success" ? (
+              <p
+                className="rounded-xl border border-sky/30 bg-alice px-4 py-3 text-sm font-medium text-midnight"
+                role="status"
+              >
+                {mockNote
+                  ? "Quote received. Add Telegram credentials in .env.local to deliver to your bot."
+                  : "Sent to Telegram. We’ll be in touch shortly."}
+              </p>
+            ) : null}
+
+            <button
+              type="submit"
+              disabled={status === "loading"}
+              className="pill btn-glow inline-flex h-12 w-full items-center justify-center bg-lime px-6 text-base font-semibold text-midnight transition duration-300 hover:bg-sky hover:text-white disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+            >
+              {status === "loading" ? "Sending…" : "Send my free quote"}
+            </button>
           </form>
         </Reveal>
       </div>
