@@ -1,62 +1,71 @@
-"use client";
-
-import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
-
-const points = [
-  {
-    title: "We install, end to end",
-    copy: "Survey, supply, and fitting handled by one local team — no hand-offs between strangers.",
-  },
-  {
-    title: "Every UPVC type",
-    copy: "Windows and doors in the styles Scottish homes actually need, finished to match your property.",
-  },
-  {
-    title: "Across Scotland",
-    copy: "From Glasgow and Edinburgh to the Highlands and Borders — we travel to you.",
-  },
-];
+import Image from "next/image";
+import { Reveal } from "@/components/reveal";
 
 export function AboutSection() {
   return (
-    <section id="about" className="overflow-visible bg-midnight px-5 py-20 text-white md:px-8 md:py-28">
-      <div className="mx-auto max-w-7xl overflow-visible">
-        <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
+    <section id="about" className="bg-white px-5 py-20 md:px-8 md:py-28">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <Reveal>
+          <div className="relative aspect-[4/5] overflow-hidden md:aspect-[5/4] lg:aspect-[4/5]">
+            <Image
+              src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1600&q=80"
+              alt="Precision-fitted glazing on a Scottish home"
+              fill
+              sizes="(max-width:1024px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </div>
+        </Reveal>
+
+        <div>
           <Reveal>
-            <p className="text-sm font-semibold tracking-[0.18em] text-lime uppercase">
+            <p className="text-xs font-semibold tracking-[0.2em] text-origin uppercase">
               About Lunox
             </p>
-            <h2 className="mt-3 font-display text-3xl font-semibold leading-tight text-white md:text-5xl">
-              Lunox Services is Scottish through and through.
+            <h2 className="mt-4 font-display-italic text-4xl text-black md:text-5xl lg:text-6xl">
+              For those with an impeccable vision for their home.
             </h2>
-            <p className="mt-5 max-w-2xl text-white/75 md:text-lg">
-              We’re a local installation business focused on UPVC windows and
-              doors for homeowners. On install day you’ll see our fitter,
-              ladder, and van on your street — the same team that surveyed the
-              job, finishing it properly while the neighbourhood looks on.
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="mt-6 text-muted-foreground md:text-lg">
+              Lunox Services is a Scottish installation company focused on UPVC
+              windows and doors. We manage your project from first survey to final
+              seal — so the frames that arrive are the ones that belong in your
+              walls.
             </p>
           </Reveal>
-
-          <Reveal delay={0.15} direction="right">
-            <p className="font-display text-2xl leading-snug text-alice md:text-3xl">
-              “We manufacture relationships the same way we fit frames — carefully,
-              on time, and built to last.”
-            </p>
+          <Reveal delay={0.18}>
+            <ul className="mt-8 space-y-4 border-t border-border pt-8 text-ink">
+              <li className="flex gap-4">
+                <span className="font-display text-2xl text-origin">01</span>
+                <div>
+                  <p className="font-semibold">Surveyed properly</p>
+                  <p className="text-muted-foreground">
+                    Accurate measurements and clear, itemised quotes.
+                  </p>
+                </div>
+              </li>
+              <li className="flex gap-4">
+                <span className="font-display text-2xl text-origin">02</span>
+                <div>
+                  <p className="font-semibold">Fitted with care</p>
+                  <p className="text-muted-foreground">
+                    Protected floors, tidy reveals, and a clean handover.
+                  </p>
+                </div>
+              </li>
+              <li className="flex gap-4">
+                <span className="font-display text-2xl text-origin">03</span>
+                <div>
+                  <p className="font-semibold">Across Scotland</p>
+                  <p className="text-muted-foreground">
+                    City, coast, and countryside — we travel to you.
+                  </p>
+                </div>
+              </li>
+            </ul>
           </Reveal>
         </div>
-
-        <Stagger className="mt-14 grid gap-6 md:grid-cols-3" delay={0.1}>
-          {points.map((point) => (
-            <StaggerItem key={point.title}>
-              <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:bg-white/10">
-                <h3 className="font-display text-xl font-semibold text-lime">
-                  {point.title}
-                </h3>
-                <p className="mt-3 text-white/70">{point.copy}</p>
-              </div>
-            </StaggerItem>
-          ))}
-        </Stagger>
       </div>
     </section>
   );

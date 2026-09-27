@@ -54,10 +54,7 @@ export function QuoteForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      const json = (await res.json()) as {
-        error?: string;
-        mock?: boolean;
-      };
+      const json = (await res.json()) as { error?: string; mock?: boolean };
 
       if (!res.ok) {
         setStatus("error");
@@ -76,32 +73,31 @@ export function QuoteForm() {
   }
 
   return (
-    <section id="quote" className="bg-midnight px-5 py-20 text-white md:px-8 md:py-28">
+    <section id="quote" className="bg-mist px-5 py-20 md:px-8 md:py-28">
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
         <Reveal>
-          <p className="text-sm font-semibold tracking-[0.18em] text-lime uppercase">
+          <p className="text-xs font-semibold tracking-[0.2em] text-origin uppercase">
             Free consultation
           </p>
-          <h2 className="mt-3 font-display text-3xl font-semibold md:text-5xl">
-            Ready to get started?
+          <h2 className="mt-4 font-display-italic text-4xl text-black md:text-5xl lg:text-6xl">
+            Speak to a professional to discuss your options today.
           </h2>
-          <p className="mt-4 max-w-md text-white/75 md:text-lg">
-            Tell us about your windows or doors and we’ll send your request
-            straight to the Lunox team on Telegram — usually with a same-day
-            callback.
+          <p className="mt-5 max-w-md text-muted-foreground md:text-lg">
+            Send your details and we’ll forward your request to the Lunox team on
+            Telegram — usually with a same-day callback.
           </p>
-          <p className="mt-6 text-sm text-white/60">
+          <p className="mt-6 text-sm text-ink">
             Prefer to talk now?{" "}
-            <a href="tel:+441412000000" className="font-semibold text-lime hover:underline">
+            <a href="tel:+441412000000" className="font-semibold text-origin hover:underline">
               0141 200 0000
             </a>
           </p>
         </Reveal>
 
-        <Reveal delay={0.12} direction="right">
+        <Reveal delay={0.1}>
           <form
             onSubmit={onSubmit}
-            className="space-y-5 rounded-3xl bg-white p-6 text-midnight shadow-[0_20px_50px_#00000033] md:p-8"
+            className="space-y-5 bg-white p-6 shadow-[0_12px_40px_#0000000d] md:p-8"
             noValidate
           >
             <div className="grid gap-5 sm:grid-cols-2">
@@ -113,7 +109,7 @@ export function QuoteForm() {
                   placeholder="Jordan MacLeod"
                   required
                   aria-invalid={invalid.name || undefined}
-                  className="h-11 bg-smoke"
+                  className="h-11 rounded-none bg-mist"
                 />
               </Field>
               <Field id="phone" label="Phone" required>
@@ -125,7 +121,7 @@ export function QuoteForm() {
                   placeholder="07xxx xxx xxx"
                   required
                   aria-invalid={invalid.phone || undefined}
-                  className="h-11 bg-smoke"
+                  className="h-11 rounded-none bg-mist"
                 />
               </Field>
             </div>
@@ -138,7 +134,7 @@ export function QuoteForm() {
                   type="email"
                   autoComplete="email"
                   placeholder="you@email.com"
-                  className="h-11 bg-smoke"
+                  className="h-11 rounded-none bg-mist"
                 />
               </Field>
               <Field id="postcode" label="Postcode" required>
@@ -149,7 +145,7 @@ export function QuoteForm() {
                   placeholder="G1 1AA"
                   required
                   aria-invalid={invalid.postcode || undefined}
-                  className="h-11 bg-smoke"
+                  className="h-11 rounded-none bg-mist"
                 />
               </Field>
             </div>
@@ -159,7 +155,7 @@ export function QuoteForm() {
                 id="interest"
                 name="interest"
                 defaultValue="Windows"
-                className="h-11 w-full rounded-lg border border-input bg-smoke px-2.5 text-sm outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
+                className="h-11 w-full rounded-none border border-input bg-mist px-2.5 text-sm outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
               >
                 <option>Windows</option>
                 <option>Doors</option>
@@ -174,24 +170,18 @@ export function QuoteForm() {
                 name="details"
                 rows={4}
                 placeholder="e.g. Replace three upstairs windows and the patio door"
-                className="resize-y bg-smoke"
+                className="resize-y rounded-none bg-mist"
               />
             </Field>
 
             {status === "error" ? (
-              <p
-                className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700"
-                role="alert"
-              >
+              <p className="border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700" role="alert">
                 {error}
               </p>
             ) : null}
 
             {status === "success" ? (
-              <p
-                className="rounded-xl border border-sky/30 bg-alice px-4 py-3 text-sm font-medium text-midnight"
-                role="status"
-              >
+              <p className="border border-secondary bg-secondary/40 px-4 py-3 text-sm font-medium text-origin" role="status">
                 {mockNote
                   ? "Quote received. Add Telegram credentials in .env.local to deliver to your bot."
                   : "Sent to Telegram. We’ll be in touch shortly."}
@@ -201,7 +191,7 @@ export function QuoteForm() {
             <button
               type="submit"
               disabled={status === "loading"}
-              className="pill btn-glow inline-flex h-12 w-full items-center justify-center bg-lime px-6 text-base font-semibold text-midnight transition duration-300 hover:bg-sky hover:text-white disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+              className="origin-btn origin-btn-dark w-full disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
             >
               {status === "loading" ? "Sending…" : "Send my free quote"}
             </button>
@@ -225,9 +215,9 @@ function Field({
 }) {
   return (
     <div className="space-y-2">
-      <Label htmlFor={id} className="text-midnight">
+      <Label htmlFor={id} className="text-ink">
         {label}
-        {required ? <span className="text-sky"> *</span> : null}
+        {required ? <span className="text-origin"> *</span> : null}
       </Label>
       {children}
     </div>
