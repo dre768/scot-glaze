@@ -1,5 +1,6 @@
 "use client";
 
+import { InstallationScene } from "@/components/installation-scene";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
 
 const points = [
@@ -21,7 +22,7 @@ export function AboutSection() {
   return (
     <section id="about" className="overflow-visible bg-midnight px-5 py-20 text-white md:px-8 md:py-28">
       <div className="mx-auto max-w-7xl overflow-visible">
-        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+        <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
           <Reveal>
             <p className="text-sm font-semibold tracking-[0.18em] text-lime uppercase">
               About Lunox
@@ -31,9 +32,9 @@ export function AboutSection() {
             </h2>
             <p className="mt-5 max-w-2xl text-white/75 md:text-lg">
               We’re a local installation business focused on UPVC windows and
-              doors for homeowners. We don’t push catalogue leftovers — we measure
-              your openings, help you choose the right system, and fit it cleanly
-              so rooms feel warmer, quieter, and finished.
+              doors for homeowners. On install day you’ll see our fitter,
+              ladder, and van on your street — the same team that surveyed the
+              job, finishing it properly while the neighbourhood looks on.
             </p>
           </Reveal>
 
@@ -44,6 +45,10 @@ export function AboutSection() {
             </p>
           </Reveal>
         </div>
+
+        <Reveal className="mt-12" direction="scale" delay={0.08}>
+          <InstallationScene />
+        </Reveal>
 
         <Stagger className="mt-14 grid gap-6 md:grid-cols-3" delay={0.1}>
           {points.map((point) => (
