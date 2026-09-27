@@ -1,26 +1,27 @@
 import type { Metadata } from "next";
-import { Fraunces, Figtree } from "next/font/google";
+import { Plus_Jakarta_Sans, Poppins } from "next/font/google";
 import "./globals.css";
 
-const display = Fraunces({
+const display = Poppins({
   variable: "--font-display",
   subsets: ["latin"],
-  axes: ["SOFT", "WONK", "opsz"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const body = Figtree({
+const body = Plus_Jakarta_Sans({
   variable: "--font-body",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "Kinloch Windows | PVC windows made & fitted across Scotland",
+  title: "Lunox Services | UPVC Windows & Doors Across Scotland",
   description:
-    "Kinloch Windows designs, manufactures, and installs made-to-measure PVC windows for homes across Scotland. Free surveys and clear quotes.",
+    "Lunox Services installs UPVC windows and doors of every type for homes across Scotland. See our work, read customer reviews, and request a free quote.",
   openGraph: {
-    title: "Kinloch Windows",
+    title: "Lunox Services",
     description:
-      "Made-to-measure PVC windows — manufactured and fitted for homes across Scotland.",
+      "UPVC windows and doors — surveyed, supplied, and fitted across Scotland.",
     locale: "en_GB",
     type: "website",
   },

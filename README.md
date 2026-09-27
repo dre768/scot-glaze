@@ -1,28 +1,45 @@
-# Kinloch Windows
+# Lunox Services
 
-Marketing site for a Scottish PVC window manufacturer and installer serving homeowners across Scotland.
+Marketing site for Lunox Services — UPVC windows and doors installed for homeowners across Scotland.
+
+Inspired by the structure and motion language of [Cléra Windows](https://www.clerawindows.com/) (navy / lime / sky palette, pill CTAs, scroll reveals, product + social-proof sections).
 
 ## Stack
 
 - Next.js (App Router) + TypeScript
 - Tailwind CSS + shadcn/ui
-- Static landing page with a client-side quote form (mock submit)
+- Quote form → Telegram Bot API (`/api/quote`)
 
 ## Run locally
 
 ```bash
 npm install
-npm run dev -- --port 3847
+cp .env.example .env.local
+npm run dev
 ```
 
 Open [http://127.0.0.1:3847](http://127.0.0.1:3847).
 
-## What’s included
+## Telegram quotes
 
-- Full-bleed hero with brand-forward positioning
-- Services: manufacture, installation, replacement
-- Scotland-wide coverage section
-- Three-step process
-- Free survey request form (loading / success / validation states)
+1. Create a bot with [@BotFather](https://t.me/BotFather) and copy the token.
+2. Message the bot, then get your chat id (e.g. via `@userinfobot` or the Telegram `getUpdates` API).
+3. Set in `.env.local`:
 
-Replace the placeholder phone and email with your real business details when ready.
+```bash
+TELEGRAM_BOT_TOKEN=123456:ABC...
+TELEGRAM_CHAT_ID=123456789
+```
+
+Without these variables the form still works in **mock mode** (request is logged server-side and marked as mock in the UI).
+
+## Sections
+
+- Hero with brand-forward pitch
+- UPVC window types
+- Door types
+- About Lunox
+- Work gallery
+- Customer reviews carousel
+- Why choose us
+- Free quote form → Telegram

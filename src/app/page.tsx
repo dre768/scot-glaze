@@ -1,10 +1,13 @@
-import { Coverage } from "@/components/coverage";
+import { AboutSection } from "@/components/about-section";
+import { DoorsSection } from "@/components/doors-section";
+import { GallerySection } from "@/components/gallery-section";
 import { Hero } from "@/components/hero";
-import { Process } from "@/components/process";
 import { QuoteForm } from "@/components/quote-form";
-import { Services } from "@/components/services";
+import { ReviewsSection } from "@/components/reviews-section";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { WhySection } from "@/components/why-section";
+import { WindowsSection } from "@/components/windows-section";
 
 export default function Home() {
   return (
@@ -12,9 +15,12 @@ export default function Home() {
       <SiteHeader />
       <main className="flex-1">
         <Hero />
-        <Services />
-        <Coverage />
-        <Process />
+        <WindowsSection />
+        <DoorsSection />
+        <AboutSection />
+        <GallerySection />
+        <ReviewsSection />
+        <WhySection />
         <QuoteForm />
       </main>
       <SiteFooter />
