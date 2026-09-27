@@ -1,6 +1,5 @@
 "use client";
 
-import { InstallationScene } from "@/components/installation-scene";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
 
 const points = [
@@ -45,10 +44,6 @@ export function AboutSection() {
             </p>
           </Reveal>
         </div>
-
-        <Reveal className="mt-12" direction="scale" delay={0.08}>
-          <InstallationScene />
-        </Reveal>
 
         <Stagger className="mt-14 grid gap-6 md:grid-cols-3" delay={0.1}>
           {points.map((point) => (
