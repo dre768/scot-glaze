@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
-import { Reveal } from "@/components/reveal";
+import { motion } from "framer-motion";
+import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
 
 const doorTypes = [
   {
@@ -24,8 +27,12 @@ export function DoorsSection() {
   return (
     <section id="doors" className="px-5 py-20 md:px-8 md:py-28">
       <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
-        <Reveal>
-          <div className="group relative aspect-[4/5] overflow-hidden rounded-3xl md:aspect-[5/4] lg:aspect-[4/5]">
+        <Reveal direction="left">
+          <motion.div
+            className="group relative aspect-[4/5] overflow-hidden rounded-3xl md:aspect-[5/4] lg:aspect-[4/5]"
+            whileHover={{ scale: 0.985 }}
+            transition={{ duration: 0.45 }}
+          >
             <Image
               src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80"
               alt="UPVC and composite door installation on a modern home"
@@ -33,11 +40,11 @@ export function DoorsSection() {
               sizes="(max-width:1024px) 100vw, 50vw"
               className="img-zoom object-cover"
             />
-          </div>
+          </motion.div>
         </Reveal>
 
         <div>
-          <Reveal>
+          <Reveal direction="right">
             <p className="text-sm font-semibold tracking-[0.18em] text-sky uppercase">
               Doors
             </p>
@@ -50,23 +57,23 @@ export function DoorsSection() {
             </p>
           </Reveal>
 
-          <ul className="mt-8 space-y-5">
-            {doorTypes.map((door, i) => (
-              <Reveal key={door.title} delay={(i % 3) as 0 | 1 | 2}>
-                <li className="border-b border-border pb-5">
+          <Stagger className="mt-8 space-y-5" delay={0.1}>
+            {doorTypes.map((door) => (
+              <StaggerItem key={door.title}>
+                <div className="border-b border-border pb-5">
                   <h3 className="font-display text-xl font-semibold text-midnight">
                     {door.title}
                   </h3>
                   <p className="mt-1 text-muted-foreground">{door.copy}</p>
-                </li>
-              </Reveal>
+                </div>
+              </StaggerItem>
             ))}
-          </ul>
+          </Stagger>
 
-          <Reveal className="mt-8">
+          <Reveal className="mt-8" delay={0.2}>
             <a
               href="#quote"
-              className="pill inline-flex bg-midnight px-6 py-3.5 font-semibold text-white transition hover:bg-sky"
+              className="pill inline-flex bg-midnight px-6 py-3.5 font-semibold text-white transition duration-300 hover:bg-sky"
             >
               Explore doors — get a quote
             </a>

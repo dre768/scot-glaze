@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Reveal } from "@/components/reveal";
 
 const reviews = [
@@ -30,15 +31,19 @@ const reviews = [
   },
 ];
 
+const ease = [0.22, 1, 0.36, 1] as const;
+
 export function ReviewsSection() {
   const [index, setIndex] = useState(0);
+  const reduce = useReducedMotion();
 
   useEffect(() => {
+    if (reduce) return;
     const id = window.setInterval(() => {
       setIndex((current) => (current + 1) % reviews.length);
     }, 6500);
     return () => window.clearInterval(id);
-  }, []);
+  }, [reduce]);
 
   const active = reviews[index];
 
@@ -55,8 +60,12 @@ export function ReviewsSection() {
         </Reveal>
 
         <div className="mt-12 grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
-          <Reveal>
-            <div className="rounded-3xl bg-alice p-8 md:p-10">
+          <Reveal direction="left">
+            <motion.div
+              className="rounded-3xl bg-alice p-8 md:p-10"
+              whileHover={{ scale: 0.985 }}
+              transition={{ duration: 0.35 }}
+            >
               <p className="font-display text-5xl font-semibold text-midnight">4.9</p>
               <p className="mt-2 text-muted-foreground">Average customer rating</p>
               <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
@@ -64,38 +73,44 @@ export function ReviewsSection() {
                 across Scotland. Swap in your live Google / Checkatrade scores
                 when you connect them.
               </p>
-            </div>
+            </motion.div>
           </Reveal>
 
-          <Reveal delay={1}>
+          <Reveal delay={0.12} direction="right">
             <div className="relative min-h-[320px] overflow-hidden rounded-3xl border border-border bg-white p-8 shadow-[0_10px_30px_#00000014] md:p-10">
-              <div
-                key={active.name}
-                className="flex h-full flex-col justify-between transition-opacity duration-500"
-              >
-                <p className="font-display text-2xl leading-snug text-midnight md:text-3xl">
-                  “{active.quote}”
-                </p>
-                <div className="mt-8 flex items-end justify-between gap-4">
-                  <div>
-                    <p className="font-semibold text-midnight">{active.name}</p>
-                    <p className="text-sm text-muted-foreground">{active.place}</p>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={active.name}
+                  className="flex h-full min-h-[260px] flex-col justify-between"
+                  initial={reduce ? false : { opacity: 0, x: 40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={reduce ? undefined : { opacity: 0, x: -40 }}
+                  transition={{ duration: 0.55, ease }}
+                >
+                  <p className="font-display text-2xl leading-snug text-midnight md:text-3xl">
+                    “{active.quote}”
+                  </p>
+                  <div className="mt-8 flex items-end justify-between gap-4">
+                    <div>
+                      <p className="font-semibold text-midnight">{active.name}</p>
+                      <p className="text-sm text-muted-foreground">{active.place}</p>
+                    </div>
+                    <div className="flex gap-2">
+                      {reviews.map((review, i) => (
+                        <button
+                          key={review.name}
+                          type="button"
+                          aria-label={`Show review from ${review.name}`}
+                          onClick={() => setIndex(i)}
+                          className={`h-2.5 w-2.5 rounded-full transition ${
+                            i === index ? "scale-125 bg-sky" : "bg-midnight/20"
+                          }`}
+                        />
+                      ))}
+                    </div>
                   </div>
-                  <div className="flex gap-2">
-                    {reviews.map((review, i) => (
-                      <button
-                        key={review.name}
-                        type="button"
-                        aria-label={`Show review from ${review.name}`}
-                        onClick={() => setIndex(i)}
-                        className={`h-2.5 w-2.5 rounded-full transition ${
-                          i === index ? "bg-sky" : "bg-midnight/20"
-                        }`}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
+                </motion.div>
+              </AnimatePresence>
             </div>
           </Reveal>
         </div>

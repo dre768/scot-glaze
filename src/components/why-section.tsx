@@ -1,4 +1,7 @@
-import { Reveal } from "@/components/reveal";
+"use client";
+
+import { motion } from "framer-motion";
+import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
 
 const reasons = [
   {
@@ -32,10 +35,14 @@ export function WhySection() {
           </h2>
         </Reveal>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
+        <Stagger className="mt-12 grid gap-6 md:grid-cols-2" delay={0.08}>
           {reasons.map((reason, i) => (
-            <Reveal key={reason.title} delay={(i % 2 === 0 ? 0 : 1) as 0 | 1}>
-              <article className="h-full rounded-2xl border border-border bg-white p-7 shadow-[0_10px_24px_#0000000f]">
+            <StaggerItem key={reason.title}>
+              <motion.article
+                className="h-full rounded-2xl border border-border bg-white p-7 shadow-[0_10px_24px_#0000000f]"
+                whileHover={{ y: -6, scale: 0.985 }}
+                transition={{ duration: 0.35 }}
+              >
                 <p className="font-display text-4xl font-semibold text-lime">
                   0{i + 1}
                 </p>
@@ -43,10 +50,10 @@ export function WhySection() {
                   {reason.title}
                 </h3>
                 <p className="mt-3 text-muted-foreground">{reason.copy}</p>
-              </article>
-            </Reveal>
+              </motion.article>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );

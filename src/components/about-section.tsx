@@ -1,4 +1,6 @@
-import { Reveal } from "@/components/reveal";
+"use client";
+
+import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
 
 const points = [
   {
@@ -35,7 +37,7 @@ export function AboutSection() {
             </p>
           </Reveal>
 
-          <Reveal delay={1}>
+          <Reveal delay={0.15} direction="right">
             <p className="font-display text-2xl leading-snug text-alice md:text-3xl">
               “We manufacture relationships the same way we fit frames — carefully,
               on time, and built to last.”
@@ -43,18 +45,18 @@ export function AboutSection() {
           </Reveal>
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {points.map((point, i) => (
-            <Reveal key={point.title} delay={(i % 3) as 0 | 1 | 2}>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+        <Stagger className="mt-14 grid gap-6 md:grid-cols-3" delay={0.1}>
+          {points.map((point) => (
+            <StaggerItem key={point.title}>
+              <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:bg-white/10">
                 <h3 className="font-display text-xl font-semibold text-lime">
                   {point.title}
                 </h3>
                 <p className="mt-3 text-white/70">{point.copy}</p>
               </div>
-            </Reveal>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );

@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
-import { Reveal } from "@/components/reveal";
+import { motion } from "framer-motion";
+import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
 
 const projects = [
   {
@@ -58,14 +61,14 @@ export function GallerySection() {
           </p>
         </Reveal>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, i) => (
-            <Reveal
-              key={project.title}
-              delay={(i % 3) as 0 | 1 | 2}
-              className={i === 0 || i === 5 ? "sm:col-span-2 lg:col-span-1" : undefined}
-            >
-              <article className="group overflow-hidden rounded-2xl bg-white shadow-[0_10px_30px_#00000014]">
+        <Stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" delay={0.05}>
+          {projects.map((project) => (
+            <StaggerItem key={project.title}>
+              <motion.article
+                className="group overflow-hidden rounded-2xl bg-white shadow-[0_10px_30px_#00000014]"
+                whileHover={{ y: -8, scale: 0.985 }}
+                transition={{ duration: 0.35 }}
+              >
                 <div className="relative aspect-[5/4] overflow-hidden">
                   <Image
                     src={project.image}
@@ -81,10 +84,10 @@ export function GallerySection() {
                   </h3>
                   <p className="mt-1 text-sm text-muted-foreground">{project.meta}</p>
                 </div>
-              </article>
-            </Reveal>
+              </motion.article>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );

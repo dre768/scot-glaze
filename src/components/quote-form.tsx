@@ -86,7 +86,7 @@ export function QuoteForm() {
           </p>
         </Reveal>
 
-        <Reveal delay={1}>
+        <Reveal delay={0.12} direction="right">
           <form
             onSubmit={onSubmit}
             className="space-y-5 rounded-3xl bg-white p-6 text-midnight shadow-[0_20px_50px_#00000033] md:p-8"
