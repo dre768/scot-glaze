@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 const links = [
@@ -13,84 +13,89 @@ const links = [
 ];
 
 export function SiteHeader() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-40 transition-all duration-300",
-        scrolled || open
-          ? "border-b border-black/5 bg-white/95 text-ink shadow-sm backdrop-blur-md"
-          : "bg-transparent text-white"
-      )}
-    >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 md:px-8">
-        <a href="#top" className="font-display text-2xl tracking-tight">
-          Lunox <span className="font-display-italic">Services</span>
-        </a>
-
-        <nav className="hidden items-center gap-8 text-[13px] font-semibold tracking-wide uppercase lg:flex">
-          {links.map((link) => (
-            <a key={link.href} href={link.href} className="opacity-90 hover:opacity-100">
-              {link.label}
+    <header className="fixed inset-x-0 top-0 z-40 text-white">
+      {/* Utility bar — Origin-style */}
+      <div className="hidden border-b border-white/10 bg-[#121a22] text-[11px] font-semibold tracking-[0.14em] uppercase sm:block">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-2.5 md:px-8">
+          <p className="text-white/65">Homeowners across Scotland</p>
+          <div className="flex items-center gap-6">
+            <a href="tel:+441412000000" className="text-white/85 hover:text-white">
+              0141 200 0000
             </a>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-3">
-          <a
-            href="tel:+441412000000"
-            className="hidden text-sm font-medium sm:block"
-          >
-            0141 200 0000
-          </a>
-          <a
-            href="#quote"
-            className={cn(
-              "origin-btn !px-4 !py-2.5 !text-xs",
-              !scrolled && !open && "bg-white text-origin hover:bg-mist hover:text-ink"
-            )}
-          >
-            Free quote
-          </a>
-          <button
-            type="button"
-            className={cn(
-              "grid size-10 place-items-center border lg:hidden",
-              scrolled || open ? "border-ink/20" : "border-white/40"
-            )}
-            aria-label="Toggle menu"
-            aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-          >
-            <div className="space-y-1.5">
-              <span className={cn("block h-0.5 w-5", scrolled || open ? "bg-ink" : "bg-white")} />
-              <span className={cn("block h-0.5 w-5", scrolled || open ? "bg-ink" : "bg-white")} />
-              <span className={cn("block h-0.5 w-5", scrolled || open ? "bg-ink" : "bg-white")} />
-            </div>
-          </button>
+            <a href="#quote" className="text-white/85 hover:text-white">
+              Request a survey
+            </a>
+          </div>
         </div>
       </div>
 
-      {open ? (
-        <div className="border-t border-black/5 bg-white px-5 py-4 text-ink lg:hidden">
-          <nav className="flex flex-col gap-3 text-sm font-semibold tracking-wide uppercase">
+      {/* Main nav */}
+      <div
+        className={cn(
+          "border-b border-white/10 bg-[#1a2530]/90 backdrop-blur-md",
+          open && "bg-[#1a2530]"
+        )}
+      >
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 md:px-8">
+          <a href="#top" className="font-display text-2xl font-normal tracking-tight lowercase">
+            lunox <span className="font-display-italic">services</span>
+          </a>
+
+          <nav className="hidden items-center gap-8 text-[12px] font-semibold tracking-[0.16em] uppercase lg:flex">
             {links.map((link) => (
-              <a key={link.href} href={link.href} onClick={() => setOpen(false)}>
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-white/85 transition hover:text-white"
+              >
                 {link.label}
               </a>
             ))}
           </nav>
+
+          <div className="flex items-center gap-3">
+            <a href="#quote" className="origin-btn !px-4 !py-2.5 !text-[11px]">
+              Free quote
+            </a>
+            <button
+              type="button"
+              className="grid size-10 place-items-center border border-white/25 lg:hidden"
+              aria-label="Toggle menu"
+              aria-expanded={open}
+              onClick={() => setOpen((v) => !v)}
+            >
+              <div className="space-y-1.5">
+                <span className="block h-0.5 w-5 bg-white" />
+                <span className="block h-0.5 w-5 bg-white" />
+                <span className="block h-0.5 w-5 bg-white" />
+              </div>
+            </button>
+          </div>
         </div>
-      ) : null}
+
+        {open ? (
+          <div className="border-t border-white/10 px-5 py-4 lg:hidden">
+            <nav className="flex flex-col gap-3 text-sm font-semibold tracking-[0.14em] uppercase">
+              {links.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="py-1 text-white/90"
+                >
+                  {link.label}
+                </a>
+              ))}
+              <a href="tel:+441412000000" className="py-1 text-white/70">
+                0141 200 0000
+              </a>
+            </nav>
+          </div>
+        ) : null}
+      </div>
     </header>
   );
 }
