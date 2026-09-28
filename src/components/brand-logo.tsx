@@ -27,52 +27,61 @@ export function BrandMark({
     >
       {/* Outer architectural frame */}
       <rect
-        x="1.25"
-        y="1.25"
-        width="37.5"
-        height="37.5"
+        x="1.5"
+        y="1.5"
+        width="37"
+        height="37"
         stroke={stroke}
-        strokeWidth="1.25"
+        strokeWidth="1.35"
       />
-      {/* Window — left half, 4 lights */}
+
+      {/* Window — left: raised sill so it reads as a window, not a door */}
       <rect
-        x="5.5"
-        y="6.5"
-        width="13.5"
-        height="27"
-        stroke={stroke}
-        strokeWidth="1.15"
-      />
-      <line x1="12.25" y1="6.5" x2="12.25" y2="33.5" stroke={stroke} strokeWidth="1" />
-      <line x1="5.5" y1="20" x2="19" y2="20" stroke={stroke} strokeWidth="1" />
-      {/* Door — right half */}
-      <rect
-        x="21.5"
-        y="6.5"
+        x="5"
+        y="6"
         width="13"
-        height="27"
+        height="22"
+        stroke={stroke}
+        strokeWidth="1.2"
+      />
+      <line x1="11.5" y1="6" x2="11.5" y2="28" stroke={stroke} strokeWidth="1.05" />
+      <line x1="5" y1="17" x2="18" y2="17" stroke={stroke} strokeWidth="1.05" />
+      {/* Window sill */}
+      <line x1="4.25" y1="28.75" x2="18.75" y2="28.75" stroke={stroke} strokeWidth="1.35" />
+
+      {/* Door — right: full height to ground, two panels + handle */}
+      <path
+        d="M22.5 6.5 H33.5 V33.5 H22.5 Z"
+        stroke={stroke}
+        strokeWidth="1.2"
+      />
+      <rect
+        x="24.35"
+        y="8.75"
+        width="7.3"
+        height="8.5"
+        stroke={stroke}
+        strokeWidth="1"
+      />
+      <rect
+        x="24.35"
+        y="19.5"
+        width="7.3"
+        height="11.25"
+        stroke={stroke}
+        strokeWidth="1"
+      />
+      {/* Lever handle */}
+      <circle cx="31.15" cy="19.1" r="0.95" fill={stroke} />
+      <line
+        x1="31.15"
+        y1="19.1"
+        x2="28.4"
+        y2="19.1"
         stroke={stroke}
         strokeWidth="1.15"
+        strokeLinecap="round"
       />
-      {/* Door panels */}
-      <rect
-        x="23.75"
-        y="9"
-        width="8.5"
-        height="9"
-        stroke={stroke}
-        strokeWidth="0.9"
-      />
-      <rect
-        x="23.75"
-        y="20.5"
-        width="8.5"
-        height="10.5"
-        stroke={stroke}
-        strokeWidth="0.9"
-      />
-      {/* Handle */}
-      <circle cx="30.75" cy="21.5" r="1.1" fill={stroke} />
     </svg>
   );
 }
