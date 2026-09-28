@@ -6,15 +6,14 @@ export function IntroSection() {
       <div className="mx-auto max-w-4xl text-center">
         <Reveal>
           <p className="font-display-italic text-3xl leading-snug text-black md:text-4xl lg:text-5xl">
-            Welcome to Lunox — windows, doors, and home improvements for British
-            houses, delivered by a local Scottish team.
+            Stop living with cold rooms and noisy streets — upgrade once, properly.
           </p>
         </Reveal>
         <Reveal delay={0.12}>
           <p className="mx-auto mt-8 max-w-2xl text-muted-foreground md:text-lg">
-            Whether you need tilt &amp; turn windows on a Glasgow flat, a composite
-            front door on a suburban semi, or flooring and tiling after an
-            extension — we keep the craft focused on what actually suits UK homes.
+            From Glasgow flats to Highland cottages, we fit the window and door
+            styles British homes actually need — then floor, tile, clad, or extend
+            when you want the same team to finish the job.
           </p>
         </Reveal>
       </div>

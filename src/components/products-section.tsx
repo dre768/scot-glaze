@@ -5,7 +5,7 @@ import { img } from "@/lib/media";
 const windows = [
   {
     title: "Casement windows",
-    copy: "Side-hinged openers with tight seals — the UK staple for wind and rain.",
+    copy: "Side-hinged modern UPVC openers with tight seals — the UK staple for wind and rain.",
     image: img.casement,
   },
   {
@@ -15,7 +15,7 @@ const windows = [
   },
   {
     title: "Sash windows",
-    copy: "Classic sliding sash character with modern UPVC performance for period properties.",
+    copy: "Period-look sliding sash in crisp new UPVC — character without the draughts.",
     image: img.sash,
   },
 ];
@@ -95,11 +95,11 @@ export function ProductsSection() {
             Product range
           </p>
           <h2 className="mt-4 max-w-3xl font-display-italic text-4xl text-black md:text-5xl lg:text-6xl">
-            A style to suit every British home.
+            Fresh frames that cut draughts and lift kerb appeal.
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground md:text-lg">
-            From period terraces to new builds — windows and doors in the types
-            Scottish and UK homeowners actually need, with sample finishes below.
+            Casement, tilt &amp; turn, and sash styles in modern UPVC — chosen to
+            suit British houses, not catalogue stock from elsewhere.
           </p>
         </Reveal>
 

@@ -1,3 +1,7 @@
+import Link from "next/link";
+import { WhatsAppIcon } from "@/components/whatsapp-icon";
+import { company } from "@/lib/company";
+
 export function SiteFooter() {
   return (
     <footer className="mt-auto bg-[#111] px-5 py-14 text-white md:px-8">
@@ -12,19 +16,34 @@ export function SiteFooter() {
             Scotland.
           </p>
         </div>
-        <div className="space-y-2 text-sm text-white/70">
+        <div className="space-y-3 text-sm text-white/70">
+          <a
+            href={company.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 hover:text-white"
+          >
+            <WhatsAppIcon className="size-5 text-[#25D366]" />
+            {company.phoneDisplay}
+            <span className="text-white/45">WhatsApp</span>
+          </a>
           <p>
-            <a href="tel:+441412000000" className="hover:text-white">
-              0141 200 0000
+            <a href={`tel:${company.phoneTel}`} className="hover:text-white">
+              Call {company.phoneDisplay}
             </a>
           </p>
           <p>
-            <a href="mailto:hello@lunoxservices.co.uk" className="hover:text-white">
-              hello@lunoxservices.co.uk
+            <a href={`mailto:${company.email}`} className="hover:text-white">
+              {company.email}
             </a>
+          </p>
+          <p>
+            <Link href="/terms" className="hover:text-white">
+              Terms &amp; Conditions
+            </Link>
           </p>
           <p className="pt-3 text-white/40">
-            © {new Date().getFullYear()} Lunox Services
+            © {new Date().getFullYear()} {company.name}
           </p>
         </div>
       </div>

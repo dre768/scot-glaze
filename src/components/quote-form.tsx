@@ -2,6 +2,8 @@
 
 import { useState, type FormEvent } from "react";
 import { Reveal } from "@/components/reveal";
+import { WhatsAppIcon } from "@/components/whatsapp-icon";
+import { company } from "@/lib/company";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -80,16 +82,21 @@ export function QuoteForm() {
             Free consultation
           </p>
           <h2 className="mt-4 font-display-italic text-4xl text-black md:text-5xl lg:text-6xl">
-            Speak to a professional to discuss your options today.
+            Tell us what you need — get a free quote today.
           </h2>
           <p className="mt-5 max-w-md text-muted-foreground md:text-lg">
-            Send your details and we’ll forward your request to the Lunox team on
-            Telegram — usually with a same-day callback.
+            Share a few details and we’ll follow up quickly. Or message us on
+            WhatsApp if you prefer a faster chat.
           </p>
-          <p className="mt-6 text-sm text-ink">
-            Prefer to talk now?{" "}
-            <a href="tel:+441412000000" className="font-semibold text-origin hover:underline">
-              0141 200 0000
+          <p className="mt-6">
+            <a
+              href={company.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-semibold text-origin hover:underline"
+            >
+              <WhatsAppIcon className="size-5 text-[#25D366]" />
+              WhatsApp {company.phoneDisplay}
             </a>
           </p>
         </Reveal>

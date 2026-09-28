@@ -10,10 +10,10 @@ export const img = {
   modernUk:
     "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?auto=format&fit=crop&w=1400&q=80",
   period: "/media/about-british.jpg",
-  bay: "/media/about-british.jpg",
-  casement: "/media/casement-sidehung.jpg",
+  casement: "/media/casement-new-upvc.jpg",
   tiltTurn: "/media/tilt-turn-inward.jpg",
-  sash: "/media/sash-six-over-six.jpg",
+  sash: "/media/sash-new-white.jpg",
+  bay: "/media/bay-new-upvc.jpg",
   frontDoor:
     "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=80",
   french:

@@ -1,15 +1,18 @@
 "use client";
 
 import { useState } from "react";
+import { WhatsAppIcon } from "@/components/whatsapp-icon";
+import { company } from "@/lib/company";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { href: "#products", label: "Products" },
-  { href: "#improvements", label: "Home improvements" },
-  { href: "#about", label: "About" },
-  { href: "#work", label: "Case studies" },
-  { href: "#process", label: "How to buy" },
-  { href: "#quote", label: "Quote" },
+  { href: "/#products", label: "Products" },
+  { href: "/#improvements", label: "Home improvements" },
+  { href: "/#about", label: "About us" },
+  { href: "/#work", label: "Case studies" },
+  { href: "/#process", label: "How to buy" },
+  { href: "/terms", label: "Terms" },
+  { href: "/#quote", label: "Quote" },
 ];
 
 export function SiteHeader() {
@@ -17,22 +20,26 @@ export function SiteHeader() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-40 text-white">
-      {/* Utility bar — Origin-style */}
       <div className="hidden border-b border-white/10 bg-[#121a22] text-[11px] font-semibold tracking-[0.14em] uppercase sm:block">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-2.5 md:px-8">
           <p className="text-white/65">Homeowners across Scotland</p>
           <div className="flex items-center gap-6">
-            <a href="tel:+441412000000" className="text-white/85 hover:text-white">
-              0141 200 0000
+            <a
+              href={company.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-white/85 hover:text-white"
+            >
+              <WhatsAppIcon className="size-3.5 text-[#25D366]" />
+              {company.phoneDisplay}
             </a>
-            <a href="#quote" className="text-white/85 hover:text-white">
+            <a href="/#quote" className="text-white/85 hover:text-white">
               Request a survey
             </a>
           </div>
         </div>
       </div>
 
-      {/* Main nav */}
       <div
         className={cn(
           "border-b border-white/10 bg-[#1a2530]/90 backdrop-blur-md",
@@ -40,11 +47,11 @@ export function SiteHeader() {
         )}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 md:px-8">
-          <a href="#top" className="font-display text-2xl font-normal tracking-tight lowercase">
+          <a href="/#top" className="font-display text-2xl font-normal tracking-tight lowercase">
             lunox <span className="font-display-italic">services</span>
           </a>
 
-          <nav className="hidden items-center gap-8 text-[12px] font-semibold tracking-[0.16em] uppercase lg:flex">
+          <nav className="hidden items-center gap-7 text-[12px] font-semibold tracking-[0.16em] uppercase lg:flex">
             {links.map((link) => (
               <a
                 key={link.href}
@@ -57,7 +64,7 @@ export function SiteHeader() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <a href="#quote" className="origin-btn !px-4 !py-2.5 !text-[11px]">
+            <a href="/#quote" className="origin-btn !px-4 !py-2.5 !text-[11px]">
               Free quote
             </a>
             <button
@@ -89,8 +96,14 @@ export function SiteHeader() {
                   {link.label}
                 </a>
               ))}
-              <a href="tel:+441412000000" className="py-1 text-white/70">
-                0141 200 0000
+              <a
+                href={company.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 py-1 normal-case tracking-normal text-white/70"
+              >
+                <WhatsAppIcon className="size-4 text-[#25D366]" />
+                {company.phoneDisplay}
               </a>
             </nav>
           </div>
