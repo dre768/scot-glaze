@@ -16,6 +16,9 @@ const body = Barlow({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://lunoxservices.com"
+  ),
   title: "Lunox Services | UPVC Windows & Doors Across Scotland",
   description:
     "Lunox Services installs UPVC windows and doors, flooring, tiling, cladding, conservatories, and house extensions for British homes across Scotland.",
