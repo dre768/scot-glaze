@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { BrandLogo } from "@/components/brand-logo";
 import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import { company } from "@/lib/company";
 import { cn } from "@/lib/utils";
@@ -46,8 +47,12 @@ export function SiteHeader() {
         )}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 md:px-8">
-          <a href="/#top" className="font-display text-2xl font-normal tracking-tight lowercase">
-            lunox <span className="font-display-italic">services</span>
+          <a
+            href="/#top"
+            className="group text-white transition-opacity hover:opacity-90"
+            aria-label="Lunox Services home"
+          >
+            <BrandLogo size="sm" />
           </a>
 
           <nav className="hidden items-center gap-7 text-[12px] font-semibold tracking-[0.16em] uppercase lg:flex">
