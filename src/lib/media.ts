@@ -1,6 +1,6 @@
 /** Shared media — local verified British exteriors & accurate window types. */
 export const img = {
-  hero: "/media/hero-kensington.jpg",
+  hero: "/media/hero-red-brick.jpg",
   about: "/media/about-british.jpg",
   terrace: "/media/terrace-british.jpg",
   suburban:

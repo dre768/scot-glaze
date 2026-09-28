@@ -8,7 +8,7 @@ export function Hero() {
       <div className="absolute inset-0">
         <Image
           src={img.hero}
-          alt="Kensington Park Gardens, London — classic British terrace with sash windows"
+          alt="Victorian red-brick British terrace with white sash bay windows"
           fill
           priority
           sizes="100vw"
