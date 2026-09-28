@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://lunoxservices.com";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.lunox.services";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -10,5 +10,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
     },
     sitemap: `${siteUrl}/sitemap.xml`,
+    host: siteUrl,
   };
 }

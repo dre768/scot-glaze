@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Libre_Bodoni, Barlow } from "next/font/google";
 import { ChatAgent } from "@/components/chat-agent";
+import { GoogleTag } from "@/components/google-tag";
+import { JsonLd } from "@/components/json-ld";
 import "./globals.css";
 
 const display = Libre_Bodoni({
@@ -16,19 +18,48 @@ const body = Barlow({
   weight: ["300", "400", "500", "600", "700"],
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.lunox.services";
+
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://lunoxservices.com"
-  ),
-  title: "Lunox Services | UPVC Windows & Doors Across Scotland",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "UPVC Windows & Doors Scotland | Lunox Services",
+    template: "%s | Lunox Services",
+  },
   description:
-    "Lunox Services installs UPVC windows and doors, flooring, tiling, cladding, conservatories, and house extensions for British homes across Scotland.",
+    "A-rated UPVC windows and doors fitted across Scotland. Free survey. Casement, tilt & turn, sash, composite doors, flooring, tiling, cladding, conservatories and extensions.",
+  keywords: [
+    "UPVC windows Scotland",
+    "UPVC doors Scotland",
+    "window fitter Glasgow",
+    "window fitter Edinburgh",
+    "double glazing Scotland",
+    "composite doors Scotland",
+    "free window survey",
+    "Lunox Services",
+  ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Lunox Services",
+    title: "Lunox Services | UPVC Windows & Doors Across Scotland",
     description:
       "Windows, doors, and home improvements — surveyed and fitted across Scotland.",
     locale: "en_GB",
     type: "website",
+    url: siteUrl,
+    siteName: "Lunox Services",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lunox Services | UPVC Windows & Doors Across Scotland",
+    description:
+      "Free survey. A-rated UPVC windows and doors fitted across Scotland.",
   },
 };
 
@@ -39,6 +70,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${display.variable} ${body.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
+        <GoogleTag />
+        <JsonLd />
         {children}
         <ChatAgent />
       </body>

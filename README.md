@@ -64,3 +64,38 @@ In Cursor, use **Create repo** so this project has a real GitHub repository.
 
 Google can take from a few days to a few weeks to show the site in search results. The live URL works in Chrome immediately after deploy — search ranking comes later.
 
+## Google Ads & Search (advertising)
+
+Live site: [https://www.lunox.services](https://www.lunox.services)
+
+### A) Free — appear in Google Search
+
+1. Open [Google Search Console](https://search.google.com/search-console)
+2. Add property → Domain or URL prefix: `https://www.lunox.services`
+3. Verify (DNS TXT or HTML tag)
+4. Submit sitemap: `https://www.lunox.services/sitemap.xml`
+5. Request indexing for the homepage
+
+### B) Paid — Google Ads to homeowners
+
+1. Open [ads.google.com](https://ads.google.com) → create account (United Kingdom / GBP)
+2. Campaign type: **Search**
+3. Goal: **Leads** / website visits
+4. Website: `https://www.lunox.services`
+5. Example keywords:
+   - upvc windows scotland
+   - window fitter glasgow
+   - double glazing edinburgh
+   - composite doors scotland
+   - free window survey scotland
+6. Ad headline examples: “UPVC Windows Across Scotland”, “Free Survey · Lunox Services”
+7. Final URL: `https://www.lunox.services/#quote`
+8. In Google Ads → Tools → **Google tag** — copy the tag ID (`AW-…` or `G-…`)
+9. Add in Vercel → Environment Variables:
+   - `NEXT_PUBLIC_GOOGLE_TAG_ID` = your tag ID
+   - `NEXT_PUBLIC_SITE_URL` = `https://www.lunox.services`
+10. Redeploy Vercel
+
+Start with a small daily budget (e.g. £10–20/day) and target Scotland only.
+
+

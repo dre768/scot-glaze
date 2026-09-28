@@ -41,6 +41,11 @@ export function SiteFooter() {
               Terms &amp; Conditions
             </Link>
           </p>
+          <p>
+            <Link href="/privacy" className="hover:text-white">
+              Privacy Policy
+            </Link>
+          </p>
           <p className="pt-3 text-white/40">
             © {new Date().getFullYear()} {company.name}
           </p>
