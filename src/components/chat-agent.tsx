@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
+import { BrandMark } from "@/components/brand-logo";
 import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import { company } from "@/lib/company";
 import { cn } from "@/lib/utils";
@@ -16,8 +17,8 @@ type Msg = {
 const welcome: Msg = {
   id: "welcome",
   role: "bot",
-  text: `Hi — I’m the Lunox assistant (AI, English, 24/7). Ask about windows, doors, quotes, or coverage across Scotland.\n\nFor a person, WhatsApp ${company.phoneDisplay}.`,
-  suggestions: ["Windows", "Doors", "Get a free quote", "WhatsApp a person"],
+  text: `Hello — thank you for contacting Lunox Services.\n\nHow can we help today? We can advise on windows, doors, home improvements, or arrange a free survey.`,
+  suggestions: ["Windows", "Doors", "Free survey", "Message on WhatsApp"],
 };
 
 export function ChatAgent() {
@@ -79,7 +80,7 @@ export function ChatAgent() {
             role: "bot",
             text:
               json.error ??
-              `Something went wrong. Please WhatsApp us on ${company.phoneDisplay}.`,
+              `We’re sorry — something went wrong. Please reach us on WhatsApp at ${company.phoneDisplay}.`,
             whatsappUrl: company.whatsapp,
           },
         ]);
@@ -97,7 +98,10 @@ export function ChatAgent() {
         },
       ]);
 
-      if (json.whatsappUrl && /whatsapp a person/i.test(trimmed)) {
+      if (
+        json.whatsappUrl &&
+        /whatsapp a person|message on whatsapp/i.test(trimmed)
+      ) {
         window.open(json.whatsappUrl, "_blank", "noopener,noreferrer");
       }
     } catch {
@@ -106,7 +110,7 @@ export function ChatAgent() {
         {
           id: `e-${Date.now()}`,
           role: "bot",
-          text: `Network issue. Message us on WhatsApp: ${company.phoneDisplay}.`,
+          text: `We couldn’t send that just now. Please message us on WhatsApp: ${company.phoneDisplay}.`,
           whatsappUrl: company.whatsapp,
         },
       ]);
@@ -121,33 +125,39 @@ export function ChatAgent() {
   }
 
   return (
-    <div className="fixed right-4 bottom-4 z-50 flex flex-col items-end gap-3 md:right-6 md:bottom-6">
+    <div className="fixed right-4 bottom-4 z-50 flex flex-col items-end gap-3 md:right-7 md:bottom-7">
       {open ? (
         <div
-          className="flex h-[min(32rem,calc(100svh-6.5rem))] w-[min(24rem,calc(100vw-2rem))] flex-col overflow-hidden border border-white/10 bg-[#1a2530] text-white shadow-[0_24px_80px_#00000066]"
+          className="flex h-[min(34rem,calc(100svh-7rem))] w-[min(23.5rem,calc(100vw-2rem))] flex-col overflow-hidden rounded-2xl border border-[#d7e0ea] bg-[#f7f9fb] text-ink shadow-[0_28px_70px_rgba(18,36,56,0.22)]"
           role="dialog"
-          aria-label="Lunox chat assistant"
+          aria-label="Lunox Services chat"
         >
-          <header className="flex items-center justify-between gap-3 border-b border-white/10 bg-[#121a22] px-4 py-3">
-            <div className="min-w-0">
-              <p className="truncate text-sm font-semibold tracking-wide">
-                Lunox assistant
-              </p>
-              <p className="text-[11px] tracking-[0.14em] text-white/55 uppercase">
-                Online · English · 24/7
-              </p>
+          <header className="flex items-center justify-between gap-3 bg-gradient-to-br from-[#023f87] to-[#0a5699] px-4 py-4 text-white">
+            <div className="flex min-w-0 items-center gap-3">
+              <span className="grid size-10 place-items-center rounded-full bg-white/15 ring-1 ring-white/25">
+                <BrandMark className="size-6 text-white" />
+              </span>
+              <div className="min-w-0">
+                <p className="truncate text-[15px] font-semibold tracking-wide">
+                  Lunox Services
+                </p>
+                <p className="flex items-center gap-1.5 text-[12px] text-white/80">
+                  <span className="size-1.5 rounded-full bg-[#7ddea3]" />
+                  Here to help with your enquiry
+                </p>
+              </div>
             </div>
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="grid size-8 place-items-center text-white/70 transition hover:text-white"
+              className="grid size-8 place-items-center rounded-full text-white/75 transition hover:bg-white/10 hover:text-white"
               aria-label="Close chat"
             >
               <span className="text-xl leading-none">×</span>
             </button>
           </header>
 
-          <div className="flex-1 space-y-3 overflow-y-auto px-3 py-4">
+          <div className="flex-1 space-y-3.5 overflow-y-auto px-3.5 py-4">
             {messages.map((msg) => (
               <div
                 key={msg.id}
@@ -158,10 +168,10 @@ export function ChatAgent() {
               >
                 <div
                   className={cn(
-                    "max-w-[92%] whitespace-pre-wrap px-3.5 py-2.5 text-sm leading-relaxed",
+                    "max-w-[90%] whitespace-pre-wrap px-3.5 py-2.5 text-[13.5px] leading-relaxed shadow-sm",
                     msg.role === "user"
-                      ? "bg-origin text-white"
-                      : "bg-white/8 text-white/95"
+                      ? "rounded-2xl rounded-br-md bg-origin text-white"
+                      : "rounded-2xl rounded-bl-md border border-[#e4ebf2] bg-white text-[#2f3a42]"
                   )}
                 >
                   {msg.text}
@@ -171,9 +181,9 @@ export function ChatAgent() {
                     href={msg.whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#25D366] hover:underline"
+                    className="inline-flex items-center gap-1.5 rounded-full bg-[#eaf8ef] px-3 py-1.5 text-xs font-semibold text-[#1f8f4c] transition hover:bg-[#dff3e6]"
                   >
-                    <WhatsAppIcon className="size-3.5" />
+                    <WhatsAppIcon className="size-3.5 text-[#25D366]" />
                     Continue on WhatsApp
                   </a>
                 ) : null}
@@ -185,7 +195,7 @@ export function ChatAgent() {
                         type="button"
                         disabled={loading}
                         onClick={() => void send(chip)}
-                        className="border border-white/20 px-2.5 py-1 text-[11px] font-semibold tracking-wide text-white/85 uppercase transition hover:border-white/50 hover:text-white disabled:opacity-50"
+                        className="rounded-full border border-[#c9d7e6] bg-white px-3 py-1.5 text-xs font-medium text-origin transition hover:border-origin hover:bg-[#eef4fa] disabled:opacity-50"
                       >
                         {chip}
                       </button>
@@ -195,32 +205,35 @@ export function ChatAgent() {
               </div>
             ))}
             {loading ? (
-              <p className="text-xs tracking-wide text-white/45 uppercase">
-                Typing…
-              </p>
+              <p className="px-1 text-xs text-[#8a949c]">Lunox is typing…</p>
             ) : null}
             <div ref={bottomRef} />
           </div>
 
           <form
             onSubmit={onSubmit}
-            className="flex gap-2 border-t border-white/10 bg-[#121a22] p-3"
+            className="border-t border-[#e4ebf2] bg-white p-3"
           >
-            <input
-              ref={inputRef}
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask about windows, doors, quotes…"
-              disabled={loading}
-              className="h-11 flex-1 border border-white/15 bg-white/5 px-3 text-sm text-white outline-none placeholder:text-white/35 focus:border-origin"
-            />
-            <button
-              type="submit"
-              disabled={loading || !input.trim()}
-              className="origin-btn !px-4 disabled:cursor-not-allowed disabled:opacity-50"
-            >
-              Send
-            </button>
+            <div className="flex items-center gap-2 rounded-full border border-[#d5dee8] bg-[#f7f9fb] px-2 py-1.5 focus-within:border-origin/50 focus-within:ring-2 focus-within:ring-origin/15">
+              <input
+                ref={inputRef}
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder="Type your message…"
+                disabled={loading}
+                className="h-9 flex-1 bg-transparent px-2.5 text-sm text-ink outline-none placeholder:text-[#9aa3ab]"
+              />
+              <button
+                type="submit"
+                disabled={loading || !input.trim()}
+                className="rounded-full bg-origin px-4 py-2 text-xs font-semibold tracking-wide text-white uppercase transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-45"
+              >
+                Send
+              </button>
+            </div>
+            <p className="mt-2 px-1 text-center text-[10px] text-[#9aa3ab]">
+              Or WhatsApp {company.phoneDisplay}
+            </p>
           </form>
         </div>
       ) : null}
@@ -228,15 +241,17 @@ export function ChatAgent() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-2 bg-origin px-4 py-3.5 text-sm font-semibold tracking-wide text-white uppercase shadow-[0_12px_40px_#023f8780] transition hover:brightness-110"
+        className="flex items-center gap-2.5 rounded-full bg-origin px-5 py-3.5 text-sm font-semibold tracking-wide text-white shadow-[0_14px_36px_rgba(2,63,135,0.35)] transition hover:brightness-110"
         aria-expanded={open}
-        aria-label={open ? "Close chat" : "Open Lunox assistant"}
+        aria-label={open ? "Close chat" : "Open Lunox chat"}
       >
-        <span className="relative flex size-2.5">
-          <span className="absolute inline-flex size-full animate-ping rounded-full bg-white/70 opacity-60" />
-          <span className="relative inline-flex size-2.5 rounded-full bg-white" />
-        </span>
-        {open ? "Close" : "Chat with us"}
+        {!open ? (
+          <span className="relative flex size-2.5">
+            <span className="absolute inline-flex size-full animate-ping rounded-full bg-white/60 opacity-70" />
+            <span className="relative inline-flex size-2.5 rounded-full bg-[#7ddea3]" />
+          </span>
+        ) : null}
+        {open ? "Close" : "Can we help?"}
       </button>
     </div>
   );

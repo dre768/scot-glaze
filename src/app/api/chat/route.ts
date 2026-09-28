@@ -47,12 +47,12 @@ export async function POST(request: Request) {
     : [];
 
   // Quick path for WhatsApp handoff chip
-  if (/^whatsapp a person$/i.test(message)) {
+  if (/^whatsapp a person$/i.test(message) || /^message on whatsapp$/i.test(message)) {
     return NextResponse.json({
       ok: true,
       provider: "local",
-      reply: `Opening WhatsApp to ${company.phoneDisplay}. Send your postcode and a quick note about the job — the team will reply as soon as they can.`,
-      suggestions: ["Get a free quote", "Windows"],
+      reply: `We’ll open WhatsApp to ${company.phoneDisplay}. Please share your postcode and a short note about the work — our team will reply as soon as they can.`,
+      suggestions: ["Free survey", "Windows"],
       whatsappUrl: `${company.whatsapp}?text=${encodeURIComponent("Hi Lunox, I’d like a free quote.")}`,
     });
   }

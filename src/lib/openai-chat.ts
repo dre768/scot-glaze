@@ -109,7 +109,7 @@ export async function answerWithOpenAI(
       suggestions:
         suggestions && suggestions.length > 0
           ? suggestions
-          : ["Get a free quote", "WhatsApp a person", "Windows", "Doors"],
+          : ["Free survey", "Message on WhatsApp", "Windows", "Doors"],
       whatsappUrl: parsed.offerWhatsApp ? company.whatsapp : undefined,
       provider: "openai",
     };
@@ -117,7 +117,7 @@ export async function answerWithOpenAI(
     console.error("[chat] Failed to parse OpenAI JSON:", err);
     return {
       reply: content.trim(),
-      suggestions: ["Get a free quote", "WhatsApp a person"],
+      suggestions: ["Free survey", "Message on WhatsApp"],
       whatsappUrl: company.whatsapp,
       provider: "openai",
     };
