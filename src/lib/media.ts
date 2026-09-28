@@ -10,7 +10,7 @@ export const img = {
   modernUk:
     "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?auto=format&fit=crop&w=1400&q=80",
   period: "/media/about-british.jpg",
-  bay: "/media/hero-british.jpg",
+  bay: "/media/about-british.jpg",
   casement: "/media/casement-window.jpg",
   tiltTurn: "/media/tilt-turn-window.jpg",
   sash: "/media/sash-window.jpg",

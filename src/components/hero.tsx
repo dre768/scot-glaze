@@ -8,7 +8,7 @@ export function Hero() {
       <div className="absolute inset-0">
         <Image
           src={img.hero}
-          alt="Red-brick Victorian terrace homes with white sash windows on a London street"
+          alt="Traditional British terraced houses with slate roofs, chimneys and sash windows"
           fill
           priority
           sizes="100vw"
