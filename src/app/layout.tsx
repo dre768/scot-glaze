@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Libre_Bodoni, Barlow } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { ChatAgent } from "@/components/chat-agent";
 import "./globals.css";
 
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col font-sans">
         {children}
         <ChatAgent />
+        <Analytics />
       </body>
     </html>
   );
