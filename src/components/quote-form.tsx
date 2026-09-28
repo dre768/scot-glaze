@@ -13,7 +13,6 @@ type Status = "idle" | "loading" | "success" | "error";
 export function QuoteForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
-  const [mockNote, setMockNote] = useState(false);
   const [invalid, setInvalid] = useState({
     name: false,
     phone: false,
@@ -24,7 +23,6 @@ export function QuoteForm() {
     event.preventDefault();
     setStatus("loading");
     setError("");
-    setMockNote(false);
 
     const form = event.currentTarget;
     const data = new FormData(form);
@@ -56,15 +54,18 @@ export function QuoteForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      const json = (await res.json()) as { error?: string; mock?: boolean };
+      const json = (await res.json()) as {
+        error?: string;
+        whatsappUrl?: string;
+      };
 
-      if (!res.ok) {
+      if (!res.ok || !json.whatsappUrl) {
         setStatus("error");
         setError(json.error ?? "Something went wrong. Please try again.");
         return;
       }
 
-      setMockNote(Boolean(json.mock));
+      window.open(json.whatsappUrl, "_blank", "noopener,noreferrer");
       setStatus("success");
       setInvalid({ name: false, phone: false, postcode: false });
       form.reset();
@@ -194,9 +195,7 @@ export function QuoteForm() {
 
             {status === "success" ? (
               <p className="border border-secondary bg-secondary/40 px-4 py-3 text-sm font-medium text-origin" role="status">
-                {mockNote
-                  ? "Quote received. Add Telegram credentials in .env.local to deliver to your bot."
-                  : "Sent to Telegram. We’ll be in touch shortly."}
+                WhatsApp is opening with your details — tap Send to message us. We’ll reply shortly.
               </p>
             ) : null}
 

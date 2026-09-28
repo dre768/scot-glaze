@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { company } from "@/lib/company";
 
 type QuotePayload = {
   name?: string;
@@ -8,6 +9,8 @@ type QuotePayload = {
   interest?: string;
   details?: string;
 };
+
+const WHATSAPP_NUMBER = company.phoneTel.replace(/\D/g, "");
 
 export async function POST(request: Request) {
   let body: QuotePayload;
@@ -33,7 +36,7 @@ export async function POST(request: Request) {
   }
 
   const message = [
-    "🪟 New Lunox quote request",
+    "New Lunox quote request",
     "",
     `Name: ${name}`,
     `Phone: ${phone}`,
@@ -45,36 +48,12 @@ export async function POST(request: Request) {
     .filter(Boolean)
     .join("\n");
 
-  const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.TELEGRAM_CHAT_ID;
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
-  if (!token || !chatId) {
-    console.info("[quote] Telegram not configured. Mock delivery:\n", message);
-    return NextResponse.json({
-      ok: true,
-      mock: true,
-      message: "Quote received (Telegram not configured — mock mode).",
-    });
-  }
+  console.info("[quote] WhatsApp handoff prepared for", WHATSAPP_NUMBER);
 
-  const telegramUrl = `https://api.telegram.org/bot${token}/sendMessage`;
-  const telegramRes = await fetch(telegramUrl, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      chat_id: chatId,
-      text: message,
-    }),
+  return NextResponse.json({
+    ok: true,
+    whatsappUrl,
   });
-
-  if (!telegramRes.ok) {
-    const errText = await telegramRes.text();
-    console.error("[quote] Telegram error:", errText);
-    return NextResponse.json(
-      { error: "Could not deliver quote to Telegram." },
-      { status: 502 }
-    );
-  }
-
-  return NextResponse.json({ ok: true });
 }

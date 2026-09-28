@@ -9,29 +9,23 @@ Visual direction inspired by [Origin Global](https://origin-global.com): Bodoni-
 - **Windows:** casement, tilt & turn, sash (with samples)
 - **Doors:** fire, composite, PVC, French, sliding, patio (with samples)
 - **Home improvements:** flooring, tiling, cladding, conservatories, house extensions (with samples)
-- Quote form → Telegram Bot API
+- Quote form → WhatsApp (`+44 7468 039026`) with all client details pre-filled
 
 ## Stack
 
 - Next.js (App Router) + TypeScript
 - Tailwind CSS + shadcn/ui
-- Quote form → Telegram Bot API (`/api/quote`)
+- Quote form → WhatsApp via `/api/quote` + `wa.me`
 
 ## Run locally
 
 ```bash
 npm install
-cp .env.example .env.local
 npm run dev
 ```
 
 Open [http://127.0.0.1:3847](http://127.0.0.1:3847).
 
-## Telegram quotes
+## Quote form → WhatsApp
 
-```bash
-TELEGRAM_BOT_TOKEN=123456:ABC...
-TELEGRAM_CHAT_ID=123456789
-```
-
-Without these variables the form works in mock mode.
+When a client submits the form, the site opens WhatsApp to **+44 7468 039026** with their name, phone, email, postcode, interest, and project details already filled in. They tap **Send** to deliver the message.
