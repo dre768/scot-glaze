@@ -87,22 +87,26 @@ export function ChatAgent() {
         return;
       }
 
+      const reply = json.reply;
+      const suggestions = json.suggestions;
+      const whatsappUrl = json.whatsappUrl;
+
       setMessages((prev) => [
         ...prev,
         {
           id: `b-${Date.now()}`,
           role: "bot",
-          text: json.reply,
-          suggestions: json.suggestions,
-          whatsappUrl: json.whatsappUrl,
+          text: reply,
+          suggestions,
+          whatsappUrl,
         },
       ]);
 
       if (
-        json.whatsappUrl &&
+        whatsappUrl &&
         /whatsapp a person|message on whatsapp/i.test(trimmed)
       ) {
-        window.open(json.whatsappUrl, "_blank", "noopener,noreferrer");
+        window.open(whatsappUrl, "_blank", "noopener,noreferrer");
       }
     } catch {
       setMessages((prev) => [
