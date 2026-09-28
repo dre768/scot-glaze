@@ -38,12 +38,12 @@ const doors = [
   },
   {
     title: "French doors",
-    copy: "Paired glazed doors that open living rooms onto gardens and patios.",
+    copy: "Paired glazed UPVC doors that open living rooms onto gardens and patios.",
     image: img.french,
   },
   {
     title: "Sliding doors",
-    copy: "Smooth-running panels for wide openings with slim sightlines.",
+    copy: "Smooth-running glazed panels for wide openings with slim sightlines.",
     image: img.sliding,
   },
   {

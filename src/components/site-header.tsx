@@ -9,7 +9,6 @@ const links = [
   { href: "/#products", label: "Products" },
   { href: "/#improvements", label: "Home improvements" },
   { href: "/#about", label: "About us" },
-  { href: "/#work", label: "Case studies" },
   { href: "/#process", label: "How to buy" },
   { href: "/terms", label: "Terms" },
   { href: "/#quote", label: "Quote" },

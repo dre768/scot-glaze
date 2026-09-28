@@ -1,4 +1,4 @@
-/** Shared media — local verified British exteriors & accurate window types. */
+/** Shared media — local verified British exteriors, windows & doors. */
 export const img = {
   hero: "/media/hero-red-brick.jpg",
   about: "/media/about-british.jpg",
@@ -14,18 +14,12 @@ export const img = {
   tiltTurn: "/media/tilt-turn-inward.jpg",
   sash: "/media/sash-new-white.jpg",
   bay: "/media/bay-new-upvc.jpg",
-  frontDoor:
-    "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=80",
-  french:
-    "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=80",
-  sliding:
-    "https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?auto=format&fit=crop&w=1400&q=80",
-  patio:
-    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80",
-  interiorDoor:
-    "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=1400&q=80",
-  fireDoor:
-    "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=1400&q=80",
+  frontDoor: "/media/door-composite.jpg",
+  french: "/media/door-french.jpg",
+  sliding: "/media/door-sliding.jpg",
+  patio: "/media/door-patio.jpg",
+  interiorDoor: "/media/door-pvc.jpg",
+  fireDoor: "/media/door-fire.jpg",
   flooring1:
     "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1400&q=80",
   flooring2:
