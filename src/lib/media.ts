@@ -1,27 +1,19 @@
-/** Shared Unsplash media — prefer British / UK suburban & period exteriors. */
+/** Shared media — local verified British exteriors & accurate window types. */
 export const img = {
-  hero:
-    "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?auto=format&fit=crop&w=2400&q=80",
-  about:
-    "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1600&q=80",
-  terrace:
-    "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1400&q=80",
+  hero: "/media/hero-british.jpg",
+  about: "/media/about-british.jpg",
+  terrace: "/media/terrace-british.jpg",
   suburban:
     "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=1400&q=80",
   brick:
     "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=1400&q=80",
   modernUk:
     "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?auto=format&fit=crop&w=1400&q=80",
-  period:
-    "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=80",
-  bay:
-    "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=1400&q=80",
-  casement:
-    "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=80",
-  tiltTurn:
-    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80",
-  sash:
-    "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=80",
+  period: "/media/about-british.jpg",
+  bay: "/media/hero-british.jpg",
+  casement: "/media/casement-window.jpg",
+  tiltTurn: "/media/tilt-turn-window.jpg",
+  sash: "/media/sash-window.jpg",
   frontDoor:
     "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=80",
   french:

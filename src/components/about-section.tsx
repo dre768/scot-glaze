@@ -10,7 +10,7 @@ export function AboutSection() {
           <div className="relative aspect-[4/5] overflow-hidden md:aspect-[5/4] lg:aspect-[4/5]">
             <Image
               src={img.about}
-              alt="British suburban home with neat lawn and classic façade"
+              alt="Kensington Park Gardens terrace with classic British sash windows"
               fill
               sizes="(max-width:1024px) 100vw, 50vw"
               className="object-cover"
