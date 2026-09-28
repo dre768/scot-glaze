@@ -18,11 +18,11 @@ const body = Barlow({
 export const metadata: Metadata = {
   title: "Lunox Services | UPVC Windows & Doors Across Scotland",
   description:
-    "Lunox Services installs UPVC windows and doors for homes across Scotland. Explore our work, read reviews, and request a free quote.",
+    "Lunox Services installs UPVC windows and doors, flooring, tiling, cladding, conservatories, and house extensions for British homes across Scotland.",
   openGraph: {
     title: "Lunox Services",
     description:
-      "UPVC windows and doors — surveyed, supplied, and fitted across Scotland.",
+      "Windows, doors, and home improvements — surveyed and fitted across Scotland.",
     locale: "en_GB",
     type: "website",
   },

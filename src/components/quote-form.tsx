@@ -160,6 +160,11 @@ export function QuoteForm() {
                 <option>Windows</option>
                 <option>Doors</option>
                 <option>Windows & doors</option>
+                <option>Flooring</option>
+                <option>Tiling</option>
+                <option>Cladding</option>
+                <option>Conservatory</option>
+                <option>House extension</option>
                 <option>Not sure yet</option>
               </select>
             </Field>

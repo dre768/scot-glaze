@@ -1,48 +1,43 @@
 import Image from "next/image";
 import { Reveal } from "@/components/reveal";
+import { img } from "@/lib/media";
 
 const studies = [
   {
-    title: "Full house refit in anthracite",
+    title: "Victorian terrace window refit",
     place: "Glasgow",
-    meta: "12 casement windows",
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80",
+    meta: "Sash-look UPVC · white",
+    image: img.terrace,
   },
   {
-    title: "A bold bifold opening to the garden",
+    title: "Suburban casement upgrade",
     place: "Edinburgh",
-    meta: "4.2m white UPVC bifold",
-    image:
-      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=80",
+    meta: "Full house casements",
+    image: img.suburban,
   },
   {
-    title: "Bay window upgrade on a period terrace",
+    title: "Brick semi with composite entrance",
     place: "Aberdeen",
-    meta: "Bay + side casements",
-    image:
-      "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=1400&q=80",
+    meta: "Front door + sidelights",
+    image: img.brick,
   },
   {
-    title: "Front door & sidelights, multipoint locked",
-    place: "Dundee",
-    meta: "Composite entrance",
-    image:
-      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=80",
-  },
-  {
-    title: "Sliding patio with a low threshold",
+    title: "Modern UK rear glazing",
     place: "Stirling",
-    meta: "Patio replacement",
-    image:
-      "https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?auto=format&fit=crop&w=1400&q=80",
+    meta: "Sliding & patio access",
+    image: img.modernUk,
+  },
+  {
+    title: "Period bay restoration look",
+    place: "Dundee",
+    meta: "Bay + casements",
+    image: img.bay,
   },
   {
     title: "Coastal cottage tilt & turn",
     place: "Highlands",
-    meta: "Woodgrain finish",
-    image:
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=80",
+    meta: "Weather-rated hardware",
+    image: img.cladding2,
   },
 ];
 
@@ -55,7 +50,7 @@ export function GallerySection() {
             Case studies
           </p>
           <h2 className="mt-4 max-w-3xl font-display-italic text-4xl text-black md:text-5xl lg:text-6xl">
-            Explore our recent installs.
+            British homes. Lunox installs.
           </h2>
         </Reveal>
 

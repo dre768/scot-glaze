@@ -1,13 +1,14 @@
 import Image from "next/image";
 import { Reveal } from "@/components/reveal";
+import { img } from "@/lib/media";
 
 export function Hero() {
   return (
     <section id="top" className="relative min-h-[100svh] overflow-hidden text-white">
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=80"
-          alt="Contemporary home with large glazed openings"
+          src={img.hero}
+          alt="Traditional British brick home with white sash-style windows"
           fill
           priority
           sizes="100vw"
@@ -20,7 +21,7 @@ export function Hero() {
       <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-5 pb-16 pt-36 md:justify-center md:px-8 md:pb-24 md:pt-40">
         <Reveal>
           <p className="text-xs font-semibold tracking-[0.22em] text-white/80 uppercase">
-            Lunox Services · Scotland
+            Lunox Services · Scotland &amp; UK homes
           </p>
         </Reveal>
         <Reveal delay={0.1}>
@@ -30,8 +31,8 @@ export function Hero() {
         </Reveal>
         <Reveal delay={0.2}>
           <p className="mt-6 max-w-xl text-base text-white/80 md:text-lg">
-            UPVC windows and doors for homeowners across Scotland — surveyed,
-            supplied, and fitted by one local team.
+            UPVC windows, doors, and home improvements for British houses —
+            surveyed, supplied, and fitted by one local team.
           </p>
         </Reveal>
         <Reveal delay={0.3}>
@@ -39,8 +40,8 @@ export function Hero() {
             <a href="#quote" className="origin-btn bg-white text-origin hover:bg-mist hover:text-ink">
               Get a free quote
             </a>
-            <a href="#work" className="origin-btn-outline">
-              Explore case studies
+            <a href="#products" className="origin-btn-outline">
+              View products
             </a>
           </div>
         </Reveal>

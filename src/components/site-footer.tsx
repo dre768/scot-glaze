@@ -7,8 +7,9 @@ export function SiteFooter() {
             Lunox <span className="font-display-italic">Services</span>
           </p>
           <p className="mt-3 max-w-md text-white/60">
-            UPVC windows and doors — surveyed, supplied, and fitted for homeowners
-            across Scotland.
+            UPVC windows and doors, plus flooring, tiling, cladding,
+            conservatories, and house extensions — fitted for British homes across
+            Scotland.
           </p>
         </div>
         <div className="space-y-2 text-sm text-white/70">

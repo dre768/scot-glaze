@@ -5,10 +5,10 @@ import { cn } from "@/lib/utils";
 
 const links = [
   { href: "#products", label: "Products" },
+  { href: "#improvements", label: "Home improvements" },
   { href: "#about", label: "About" },
   { href: "#work", label: "Case studies" },
   { href: "#process", label: "How to buy" },
-  { href: "#reviews", label: "Reviews" },
   { href: "#quote", label: "Quote" },
 ];
 
