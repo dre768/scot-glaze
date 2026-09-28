@@ -18,7 +18,7 @@ export const img = {
   french: "/media/door-french.jpg",
   sliding: "/media/door-sliding.jpg",
   patio: "/media/door-patio.jpg",
-  interiorDoor: "/media/door-pvc.jpg",
+  interiorDoor: "/media/door-pvc-oak.jpg",
   fireDoor: "/media/door-fire.jpg",
   flooring1:
     "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1400&q=80",
