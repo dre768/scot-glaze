@@ -16,7 +16,7 @@ type Msg = {
 const welcome: Msg = {
   id: "welcome",
   role: "bot",
-  text: `Hi — I’m the Lunox assistant. Ask about windows, doors, quotes, or coverage across Scotland. Available 24/7.\n\nFor a person, WhatsApp ${company.phoneDisplay}.`,
+  text: `Hi — I’m the Lunox assistant (AI, English, 24/7). Ask about windows, doors, quotes, or coverage across Scotland.\n\nFor a person, WhatsApp ${company.phoneDisplay}.`,
   suggestions: ["Windows", "Doors", "Get a free quote", "WhatsApp a person"],
 };
 
@@ -49,10 +49,20 @@ export function ChatAgent() {
     setLoading(true);
 
     try {
+      const history = messages
+        .filter((m) => m.id !== "welcome")
+        .slice(-12)
+        .map((m) => ({
+          role: (m.role === "user" ? "user" : "assistant") as
+            | "user"
+            | "assistant",
+          content: m.text,
+        }));
+
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: trimmed }),
+        body: JSON.stringify({ message: trimmed, history }),
       });
       const json = (await res.json()) as {
         error?: string;

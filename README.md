@@ -10,7 +10,7 @@ Visual direction inspired by [Origin Global](https://origin-global.com): Bodoni-
 - **Doors:** fire, composite, PVC, French, sliding, patio (with samples)
 - **Home improvements:** flooring, tiling, cladding, conservatories, house extensions (with samples)
 - Quote form → WhatsApp (`+44 7468 039026`) with all client details pre-filled
-- English 24/7 chat assistant (custom, no API key) with WhatsApp handoff
+- English 24/7 chat assistant powered by OpenAI (`OPENAI_API_KEY`), with local FAQ fallback and WhatsApp handoff
 
 ## Stack
 
