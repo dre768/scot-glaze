@@ -8,7 +8,7 @@ Visual direction inspired by [Origin Global](https://origin-global.com): Bodoni-
 
 - **Windows:** casement, tilt & turn, sash (with samples)
 - **Doors:** fire, composite, PVC, French, sliding, patio (with samples)
-- **Solar:** home PV systems, 3D roof visualisation, survey & installation
+- **Solar:** system design, CAD drawings, 3D visualisation, survey & installation
 - **Home improvements:** flooring, tiling, cladding, conservatories, house extensions (with samples)
 - Quote form → WhatsApp (`+44 7468 039026`) with all client details pre-filled
 - English 24/7 chat assistant powered by OpenAI (`OPENAI_API_KEY`), with local FAQ fallback and WhatsApp handoff

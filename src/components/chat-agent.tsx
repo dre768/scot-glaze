@@ -17,8 +17,8 @@ type Msg = {
 const welcome: Msg = {
   id: "welcome",
   role: "bot",
-  text: `Hello — thank you for contacting Lunox Services.\n\nHow can we help today? We can advise on windows, doors, home solar (including 3D visualisation), home improvements, or arrange a free survey.`,
-  suggestions: ["Windows", "Solar", "Free survey", "Message on WhatsApp"],
+  text: `Hello — thank you for contacting Lunox Services.\n\nHow can we help today? We can advise on windows, doors, solar system design (CAD drawings & 3D visualisation), home improvements, or arrange a free survey.`,
+  suggestions: ["Windows", "Solar CAD", "Free survey", "Message on WhatsApp"],
 };
 
 export function ChatAgent() {

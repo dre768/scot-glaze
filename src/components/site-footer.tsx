@@ -10,9 +10,9 @@ export function SiteFooter() {
         <div>
           <BrandLogo size="lg" />
           <p className="mt-3 max-w-md text-white/60">
-            UPVC windows and doors, home solar with 3D visualisation, plus
-            flooring, tiling, cladding, conservatories, and house extensions —
-            fitted for British homes across Scotland.
+            UPVC windows and doors, home solar design with CAD drawings and 3D
+            visualisation, plus flooring, tiling, cladding, conservatories, and
+            house extensions — fitted for British homes across Scotland.
           </p>
         </div>
         <div className="space-y-3 text-sm text-white/70">

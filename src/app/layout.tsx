@@ -28,11 +28,13 @@ export const metadata: Metadata = {
     template: "%s | Lunox Services",
   },
   description:
-    "A-rated UPVC windows and doors, home solar systems with 3D visualisation, flooring, tiling, cladding, conservatories and extensions — fitted across Scotland. Free survey.",
+    "A-rated UPVC windows and doors, home solar design with CAD drawings and 3D visualisation, flooring, tiling, cladding, conservatories and extensions — fitted across Scotland. Free survey.",
   keywords: [
     "UPVC windows Scotland",
     "UPVC doors Scotland",
     "solar panels Scotland",
+    "solar CAD drawings",
+    "solar system design",
     "home solar installation",
     "solar 3D visualisation",
     "window fitter Glasgow",

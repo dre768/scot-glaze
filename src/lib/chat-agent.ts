@@ -56,10 +56,10 @@ const intents: Intent[] = [
   {
     id: "solar",
     patterns: [
-      /\b(solar|pv|photovoltaic|panels?|inverter|battery|renewable|3d\s*visual)\b/i,
+      /\b(solar|pv|photovoltaic|panels?|inverter|battery|renewable|3d\s*visual|cad|drawing|schematic|design)\b/i,
     ],
-    reply: `We design and install home solar systems across Scotland — including roof survey, 3D visualisation of the panel layout, professional fitting, and switch-on handover.\n\nShare your postcode and a roof photo for a free solar consultation.`,
-    suggestions: ["Free survey", "Message on WhatsApp", "Windows"],
+    reply: `We provide full home solar project design across Scotland — including system engineering, CAD drawings (roof array plans and electrical diagrams), 3D visualisation, professional installation, and switch-on handover.\n\nShare your postcode and roof photos for a design consultation.`,
+    suggestions: ["Solar CAD", "Free survey", "Message on WhatsApp"],
     offerWhatsApp: true,
   },
   {

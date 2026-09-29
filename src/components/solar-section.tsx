@@ -4,45 +4,64 @@ import { img } from "@/lib/media";
 
 const offerings = [
   {
-    title: "Home solar systems",
-    copy: "Roof-mounted solar PV designed for British homes — sized for your usage, roof orientation, and Scottish daylight.",
+    id: "solar-design",
+    title: "Solar system design",
+    copy: "Full project engineering for your home: load assessment, panel string design, inverter sizing, mounting layout, and cable routes — prepared before anything goes on the roof.",
     image: img.solarHome,
-    label: "Residential solar on a brick home",
+    label: "Designed residential solar system on a brick home",
   },
   {
-    title: "3D project visualisation",
-    copy: "See your system before we fit it. We prepare clear 3D visualisations of panel layout on your roof so you can approve the look and coverage with confidence.",
+    id: "solar-cad",
+    title: "CAD drawings",
+    copy: "Detailed CAD drawings for every project: roof array plans, elevations, mounting details, and electrical schematics — clear documents for installers, clients, and compliance.",
+    image: img.solarCad,
+    label: "CAD drawing of a home solar array layout",
+  },
+  {
+    id: "solar-visual",
+    title: "3D visualisation",
+    copy: "Photoreal 3D visualisations of the finished roof so you can approve panel placement, coverage, and appearance before installation begins.",
     image: img.solarViz,
     label: "3D solar roof visualisation",
   },
   {
+    id: "solar-install",
     title: "Survey, install & handover",
-    copy: "From roof survey and design to professional installation, electrics, and a clean handover — one Lunox team from first WhatsApp to switch-on.",
+    copy: "Roof survey, professional fitting, electrics, testing, and a clean switch-on handover — delivered from the approved CAD pack and 3D design.",
     image: img.solarInstall,
     label: "Solar panel installation on site",
   },
 ];
 
+const deliverables = [
+  "System design & performance estimate",
+  "CAD roof array drawings",
+  "CAD electrical / single-line diagrams",
+  "Mounting & fixing details",
+  "3D visualisation pack",
+  "Installation & commissioning",
+];
+
 const steps = [
   {
     n: "01",
-    title: "Roof survey",
-    copy: "We check pitch, orientation, shading, and electrical capacity.",
+    title: "Survey & brief",
+    copy: "Roof pitch, orientation, shading, structure, and electrical capacity.",
   },
   {
     n: "02",
-    title: "3D design",
-    copy: "You receive a visualisation and system proposal for your home.",
+    title: "CAD & system design",
+    copy: "Engineered layout, panel strings, inverter selection, and CAD drawings.",
   },
   {
     n: "03",
-    title: "Installation",
-    copy: "Panels, mounting, and inverter fitted by our installation team.",
+    title: "3D visualisation",
+    copy: "Approve the look of the array on your home before manufacture/fit.",
   },
   {
     n: "04",
-    title: "Switch-on",
-    copy: "Testing, handover, and guidance on monitoring your system.",
+    title: "Install & switch-on",
+    copy: "Fitted to the approved drawings, tested, and handed over.",
   },
 ];
 
@@ -53,34 +72,35 @@ export function SolarSection() {
       <div className="relative mx-auto max-w-7xl">
         <Reveal>
           <p className="text-xs font-semibold tracking-[0.2em] text-white/60 uppercase">
-            Solar systems
+            Solar design &amp; installation
           </p>
-          <h2 className="mt-4 max-w-3xl font-display-italic text-4xl text-white md:text-5xl lg:text-6xl">
-            Solar for your home — designed in 3D, fitted with care.
+          <h2 className="mt-4 max-w-4xl font-display-italic text-4xl text-white md:text-5xl lg:text-6xl">
+            Solar system design, CAD drawings, 3D visualisation &amp; install.
           </h2>
           <p className="mt-5 max-w-2xl text-base text-white/70 md:text-lg">
-            Lunox now designs and installs home solar projects across Scotland:
-            system sizing, 3D roof visualisations, professional fitting, and
-            full handover — so you can see the finished look before work begins.
+            Lunox designs home solar projects properly — not just panels on a
+            roof. We prepare the full design package: CAD drawings, technical
+            layouts, 3D visualisations, then professional installation across
+            Scotland.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="#quote" className="origin-btn bg-white text-origin hover:bg-mist">
-              Get a solar quote
+              Request solar design
             </a>
             <a
-              href="#solar-visual"
+              href="#solar-cad"
               className="origin-btn-outline !border-white/40 !text-white hover:!bg-white hover:!text-origin"
             >
-              See 3D visualisation
+              View CAD &amp; 3D work
             </a>
           </div>
         </Reveal>
 
-        <div className="mt-16 grid gap-5 md:grid-cols-3">
+        <div className="mt-16 grid gap-5 sm:grid-cols-2">
           {offerings.map((item, i) => (
-            <Reveal key={item.title} delay={0.06 * i}>
+            <Reveal key={item.id} delay={0.05 * i}>
               <article
-                id={item.title.includes("3D") ? "solar-visual" : undefined}
+                id={item.id}
                 className="flex h-full flex-col bg-white/5 ring-1 ring-white/10"
               >
                 <div className="relative aspect-[16/10] overflow-hidden">
@@ -88,7 +108,7 @@ export function SolarSection() {
                     src={item.image}
                     alt={item.label}
                     fill
-                    sizes="(max-width:768px) 100vw, 33vw"
+                    sizes="(max-width:768px) 100vw, 50vw"
                     className="object-cover transition duration-700 hover:scale-105"
                   />
                 </div>
@@ -105,13 +125,32 @@ export function SolarSection() {
           ))}
         </div>
 
+        <div className="mt-16 border border-white/10 bg-white/[0.03] p-6 md:p-8">
+          <Reveal>
+            <p className="text-xs font-semibold tracking-[0.2em] text-white/55 uppercase">
+              Design pack includes
+            </p>
+            <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {deliverables.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-3 text-sm text-white/80"
+                >
+                  <span className="mt-1.5 size-1.5 shrink-0 bg-origin" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+
         <div className="mt-20 grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
           <Reveal>
             <p className="text-xs font-semibold tracking-[0.2em] text-white/55 uppercase">
-              How a solar project works
+              Project workflow
             </p>
             <h3 className="mt-4 font-display text-3xl text-white md:text-4xl">
-              From first survey to switch-on.
+              From survey to CAD, 3D, and switch-on.
             </h3>
             <ol className="mt-8 space-y-5">
               {steps.map((step) => (
@@ -129,15 +168,16 @@ export function SolarSection() {
             <div className="relative aspect-[4/3] overflow-hidden bg-white/5 ring-1 ring-white/10">
               <Image
                 src={img.solarFit}
-                alt="Solar installation detail — panels being fitted"
+                alt="Solar installation carried out from approved design drawings"
                 fill
                 sizes="(max-width:1024px) 100vw, 50vw"
                 className="object-cover"
               />
             </div>
             <p className="mt-4 text-sm text-white/55">
-              Ask for a free solar consultation — share your postcode and a roof
-              photo on WhatsApp or the quote form.
+              Ask for a solar design consultation — share your postcode and roof
+              photos on WhatsApp or the quote form. We prepare CAD + 3D before
+              install.
             </p>
           </Reveal>
         </div>
