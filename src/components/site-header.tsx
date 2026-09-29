@@ -22,8 +22,7 @@ export function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-0 z-40 text-white">
       <div className="hidden border-b border-white/10 bg-[#121a22] text-[11px] font-semibold tracking-[0.14em] uppercase sm:block">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-2.5 md:px-8">
-          <p className="text-white/65">Homeowners across Scotland</p>
+        <div className="mx-auto flex max-w-7xl items-center justify-end gap-4 px-5 py-2.5 md:px-8">
           <div className="flex items-center gap-6">
             <a
               href={company.whatsapp}
