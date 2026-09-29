@@ -8,6 +8,7 @@ import { QuoteForm } from "@/components/quote-form";
 import { ReviewsSection } from "@/components/reviews-section";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { SolarSection } from "@/components/solar-section";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <Hero />
         <IntroSection />
         <ProductsSection />
+        <SolarSection />
         <HomeImprovementsSection />
         <AboutSection />
         <ProcessSection />

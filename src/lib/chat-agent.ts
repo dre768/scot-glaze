@@ -54,6 +54,15 @@ const intents: Intent[] = [
     offerWhatsApp: true,
   },
   {
+    id: "solar",
+    patterns: [
+      /\b(solar|pv|photovoltaic|panels?|inverter|battery|renewable|3d\s*visual)\b/i,
+    ],
+    reply: `We design and install home solar systems across Scotland — including roof survey, 3D visualisation of the panel layout, professional fitting, and switch-on handover.\n\nShare your postcode and a roof photo for a free solar consultation.`,
+    suggestions: ["Free survey", "Message on WhatsApp", "Windows"],
+    offerWhatsApp: true,
+  },
+  {
     id: "improvements",
     patterns: [
       /\b(flooring|tiling|tiles?|cladding|conservator|extension|home\s*improve)\b/i,

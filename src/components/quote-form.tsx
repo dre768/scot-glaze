@@ -168,6 +168,8 @@ export function QuoteForm() {
                 <option>Windows</option>
                 <option>Doors</option>
                 <option>Windows & doors</option>
+                <option>Solar system</option>
+                <option>Solar 3D visualisation</option>
                 <option>Flooring</option>
                 <option>Tiling</option>
                 <option>Cladding</option>

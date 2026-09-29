@@ -44,4 +44,9 @@ export const img = {
     "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=80",
   extension2:
     "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1400&q=80",
+  solarHome: "/media/solar-3d-home.jpg",
+  solarViz: "/media/solar-3d-detail.jpg",
+  solarInstall: "/media/solar-install.jpg",
+  solarArray: "/media/solar-array.jpg",
+  solarFit: "/media/solar-fit.jpg",
 } as const;

@@ -13,7 +13,7 @@ export function JsonLd() {
     email: company.email,
     telephone: company.phoneTel,
     description:
-      "UPVC windows and doors, flooring, tiling, cladding, conservatories, and house extensions fitted across Scotland.",
+      "UPVC windows and doors, home solar systems with 3D visualisation, flooring, tiling, cladding, conservatories, and house extensions fitted across Scotland.",
     areaServed: [
       { "@type": "Country", name: "Scotland" },
       { "@type": "Country", name: "United Kingdom" },
@@ -34,6 +34,8 @@ export function JsonLd() {
       itemListElement: [
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "UPVC windows" } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "UPVC doors" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Home solar systems" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Solar 3D visualisation" } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Flooring" } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Tiling" } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Cladding" } },

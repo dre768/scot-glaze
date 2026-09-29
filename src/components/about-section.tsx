@@ -33,9 +33,10 @@ export function AboutSection() {
           <Reveal delay={0.1}>
             <p className="mt-6 text-muted-foreground md:text-lg">
               Lunox Services is a Scottish home-improvement company specialising
-              in UPVC windows and doors — plus flooring, tiling, cladding,
-              conservatories, and extensions. We survey, supply, and fit so you
-              deal with one team from the first call to the final clean-up.
+              in UPVC windows and doors — plus home solar systems with 3D
+              visualisation, flooring, tiling, cladding, conservatories, and
+              extensions. We survey, supply, and fit so you deal with one team
+              from the first call to the final clean-up.
             </p>
             <p className="mt-4 text-muted-foreground md:text-lg">
               We work across {company.area}: terraces, semis, flats, bungalows,
@@ -95,6 +96,15 @@ export function AboutSection() {
               <li className="flex gap-4">
                 <span className="font-display text-2xl text-origin">02</span>
                 <div>
+                  <p className="font-semibold">Home solar &amp; 3D design</p>
+                  <p className="text-muted-foreground">
+                    Roof survey, 3D visualisation, install, and switch-on.
+                  </p>
+                </div>
+              </li>
+              <li className="flex gap-4">
+                <span className="font-display text-2xl text-origin">03</span>
+                <div>
                   <p className="font-semibold">Home improvements</p>
                   <p className="text-muted-foreground">
                     Floors, tiles, cladding, conservatories, and extensions.
@@ -102,7 +112,7 @@ export function AboutSection() {
                 </div>
               </li>
               <li className="flex gap-4">
-                <span className="font-display text-2xl text-origin">03</span>
+                <span className="font-display text-2xl text-origin">04</span>
                 <div>
                   <p className="font-semibold">Free survey &amp; quote</p>
                   <p className="text-muted-foreground">
